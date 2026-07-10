@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ff">
+  <meta name="description" content="双色球与大乐透随机号码生成工具">
+  <title>幸运数字实验室</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <main class="page-shell">
+    <nav class="topbar" aria-label="页面信息">
+      <a class="brand" href="#" aria-label="幸运数字实验室首页">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>幸运数字实验室</span>
+      </a>
+      <span class="responsible-note">随机不预测 · 理性娱乐</span>
+    </nav>
+
+    <header class="hero">
+      <p class="eyebrow">LUCKY NUMBER LAB</p>
+      <h1>摇一摇灵感，<br>看看今天的号码。</h1>
+      <p class="hero-copy">每一次随机，都是一次轻松的小期待。</p>
+    </header>
+
+    <div class="content-grid">
+      <section class="glass-card generator-card" aria-labelledby="generator-title">
+        <h2 id="generator-title" class="sr-only">随机号码生成器</h2>
+
+        <div class="generator-head">
+          <div id="game-tabs" class="game-tabs" role="radiogroup" aria-label="选择彩票类型">
+            <button class="game-tab is-active" type="button" role="radio" aria-checked="true" data-game="ssq">双色球</button>
+            <button class="game-tab" type="button" role="radio" aria-checked="false" data-game="dlt">大乐透</button>
+          </div>
+          <p id="rule-description" class="rule-description">6 个红球 + 1 个蓝球</p>
+        </div>
+
+        <div class="result-panel">
+          <div class="result-meta">
+            <span>本次号码</span>
+            <span id="result-stamp">等待生成</span>
+          </div>
+          <div id="current-results" class="current-results" aria-live="polite">
+            <div class="result-empty">
+              <span class="empty-spark" aria-hidden="true">✦</span>
+              <p>点击下方按钮，生成你的随机号码</p>
+            </div>
+          </div>
+        </div>
+
+        <fieldset class="count-fieldset">
+          <legend>生成几组？</legend>
+          <div id="group-counts" class="group-counts">
+            <button class="count-button is-active" type="button" aria-pressed="true" data-count="1">1 组</button>
+            <button class="count-button" type="button" aria-pressed="false" data-count="3">3 组</button>
+            <button class="count-button" type="button" aria-pressed="false" data-count="5">5 组</button>
+            <button class="count-button" type="button" aria-pressed="false" data-count="10">10 组</button>
+          </div>
+        </fieldset>
+
+        <div class="primary-actions">
+          <button id="copy-current" class="secondary-button" type="button" disabled>
+            复制号码
+          </button>
+          <button id="generate-button" class="generate-button" type="button">
+            <span aria-hidden="true">✦</span>
+            立即生成
+          </button>
+        </div>
+      </section>
+
+      <aside class="glass-card history-card" aria-labelledby="history-title">
+        <div class="history-head">
+          <div>
+            <p class="section-kicker">SESSION</p>
+            <h2 id="history-title">本次历史</h2>
+          </div>
+          <button id="clear-history" class="text-button" type="button" disabled>
+            清空
+          </button>
+        </div>
+        <div id="history-list" class="history-list">
+          <div class="history-empty">
+            <span aria-hidden="true">◌</span>
+            <p>新生成的号码会保留在这里</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>号码由本地随机生成，仅供娱乐参考</footer>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
